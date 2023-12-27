@@ -1,0 +1,22 @@
+kind: ReplicaSet
+apiVersion: apps/v1
+metadata:
+  name: repset
+  annotations:
+    description: this is an example of replica set
+spec:
+  replicas: 5
+  selector:
+    matchExpressions:
+      - {key: env, operator: In, values: [devops]}
+  template:
+    metadata:
+      name: setpod
+      labels:
+        env: devops
+    spec:
+       containers:
+          - name: cont1
+            image: ubuntu
+            command: ["/bin/bash","-c","while true;do echo venkatesh mathi loves tara;sleep 5;done"]
+

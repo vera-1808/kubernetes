@@ -1,0 +1,15 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: labels
+  annotations:
+    description: this is an labels and selectors eg
+  labels:
+    name: chaitra
+    class: guftgu
+spec:
+  containers:
+    - name: cont1
+      image: ubuntu
+      command: ["/bin/bash","-c","while true;do echo labels example;sleep 5;done"]
+      

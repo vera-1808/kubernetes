@@ -1,0 +1,15 @@
+kind: Pod
+apiVersion: v1
+metadata: 
+ name: environments
+ annotations: 
+   description: this is an example of environment variables
+spec:
+  containers:
+    - name: cont1
+      image: ubuntu
+      command: ["/bin/bash","-c","while true;do echo ENV value;sleep 5;done"]
+      env:
+        - name: MYNAME
+          value: VENKATESH
+  

@@ -1,0 +1,15 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: nodeselector
+  annotations:
+    description: this is an node selectors example
+  labels:
+    env: devops
+spec:
+  containers:
+    - name: cont1
+      image: ubuntu
+      command: ["/bin/bash","-c","while true;do echo node selector;sleep 5;done"]
+  nodeSelector:
+        hardware: t2-medium

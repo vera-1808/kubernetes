@@ -1,0 +1,15 @@
+kind: Pod
+apiVersion: v1
+metadata: 
+ name: multicont
+ annotations:
+   description: this is for multi container
+spec:
+  containers:
+    - name: cont1
+      image: ubuntu
+      command: ["/bin/bash","-c","while true;do echo first container;sleep 3;done"]
+    - name: cont2
+      image: ubuntu
+      command: ["/bin/bash","-c","while true;do echo second contaiiner;sleep 3;done"] 
+   

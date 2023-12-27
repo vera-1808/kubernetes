@@ -1,0 +1,19 @@
+kind: ReplicationController
+apiVersion: v1
+metadata: 
+ name: repcont
+spec: 
+ replicas: 3
+ selector:
+   name: venkatesh
+ template:
+  metadata:
+    name: replicationcontroller
+    labels:
+     name: venkatesh
+  spec:
+    containers:
+     - name: cont1
+       image: ubuntu
+       command: ["/bin/bash","-c","while true;do echo replication controller;sleep 5;done"]
+

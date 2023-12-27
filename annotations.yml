@@ -1,0 +1,12 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: mypod2
+  annotations:
+    description: this is an example of annotation
+spec:
+  containers:
+    - name: cont1
+      image: ubuntu
+      command: ["/bin/bash","-c","while true;do echo annotation examples;sleep 5;done"]
+  restartPolicy: Never

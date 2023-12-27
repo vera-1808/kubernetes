@@ -1,0 +1,10 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: mypod2
+spec:
+  containers:
+   - name: cont2
+     image: centos
+     command: ["/bin/bash","-c","while true;do echo hello venkatesh;sleep 5;done"]
+
