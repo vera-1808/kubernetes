@@ -1,0 +1,20 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: mydeployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: devops
+  template:
+    metadata:
+      name: rollbackpod
+      labels:
+        name: devops
+    spec:
+      containers:
+        - name: cont1
+          image: centos
+          command: ["/bin/bash","-c","while true;do echo rollback rollback rollback;sleep 5;done"]
+

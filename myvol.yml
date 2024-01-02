@@ -1,0 +1,22 @@
+kind: Pod
+apiVersion: v1
+metadata:
+ name: myvol
+spec:
+ containers:
+  - name: cont1
+    image: centos
+    command: ["/bin/bash","-c","while true;do echo happy new yesr 2024;sleep 5;done"]
+    volumeMounts:
+     - name: memory
+       mountPath: "/tmp/venkatesh"
+  - name: cont2
+    image: centos
+    command: ["/bin/bash","-c","while true;do echo happy new year 2024;sleep 5;done"]
+    volumeMounts:
+     - name: memory
+       mountPath: "/tmp/tara"
+ volumes:
+  - name: memory
+    emptyDir: {}
+     

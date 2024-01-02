@@ -1,0 +1,20 @@
+kind: ReplicationController
+apiVersion: v1
+metadata:
+  name: 3rirc
+annotations:
+  description: this is an example of nginx
+spec:
+  replicas: 3
+  selector:
+    company: gslab
+  template:
+    metadata:
+      name: 3ripod
+    spec:
+      containers:
+        - name: contrc
+          image: nginx
+          ports:
+            - containerPort: 80
+

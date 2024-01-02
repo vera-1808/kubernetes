@@ -1,0 +1,20 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: demodeploy
+spec:
+  replicas: 3
+  selector:
+   matchLabels:
+    company: gslab
+  template:
+    metadata:
+      name: demopod
+      labels:
+        company: gslab
+    spec:
+      containers:
+          - name: democont
+            image: nginx
+            ports:
+              - containerPort: 80

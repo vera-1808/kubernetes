@@ -1,0 +1,22 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata: 
+ name: demohttpd 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: tara
+  template:
+    metadata:
+      name: podhttpd
+      labels:
+       name: tara
+    spec:
+      containers:
+        - name: cont1
+          image: httpd
+          command: ["/bin/bash","-c","while true;do echo hello world;sleep 5;done"]
+          ports:
+            - containerPort: 80
+

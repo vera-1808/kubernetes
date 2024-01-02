@@ -1,0 +1,22 @@
+kind: Pod
+apiVersion: v1
+metadata:
+ name: host
+spec:
+ containers:
+  - name: cont1
+    image: centos
+    command: ["/bin/bash","-c","sleep 1500"]
+    volumeMounts:
+     - mountPath: "/var/venkatesh"
+       name: data
+  - name: cont2
+    image: centos
+    command: ["/bin/bash","-c","sleep 1500"]
+    volumeMounts:
+     - mountPath: "/var/document"
+       name: data
+ volumes:
+  - name: data
+    hostPath:
+      path: "/tmp/new"
